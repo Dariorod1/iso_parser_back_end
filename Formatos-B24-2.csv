@@ -1,0 +1,131 @@
+#codigo - nombre - expr. regular - longitud (fija o variable) - variable (0=no o 1=SI) - numerico (0=NO o 1=SI)
+1,secndry-bit-map,(\d|[A-P])*,16,0,0,MapaSecundario
+2,pan,[ \d]*,19,1,1
+3,proc-cde,(\d|[A-P])*,6,0,0,Transaccion
+4,tran-amt,[ \d]*,12,0,1,Importe
+5,srtl-amt,[ \d]*,12,0,1
+6,bill-amt,[ \d]*,12,0,1
+7,xmit-dat-tim,[0-1]\d[0-3]\d[0-2]\d[0-5]\d[0-5]\d,10,0,1,Fecmsg
+8,bill-fee,[ \d]*,8,0,1
+9,setl-conv-rat,[ \d]*,8,0,1
+10,bill-conv-rat,[ \d]*,8,0,1
+11,trace-num,[ \d]*,6,0,1,Trace
+12,tran-tim,[0-2]\d[0-5]\d[0-5]\d,6,0,1,HoraFecLocal
+# Work-around bug en la documentacin de Link: especifica formato YYMM; la norma indica MMDD
+# 13,tran-dat,\d\d[0-1]\d,4,0,1,,,,
+13,tran-dat,[0-1]\d[0-3]\d,4,0,1,FechaFecLocal
+14,exp-dat,\d\d[0-1]\d,4,0,1
+15,setl-dat,[0-1]\d[0-3]\d,4,0,1,FechaOtraRed
+16,conv-dat,[0-1]\d[0-3]\d,4,0,1
+17,cap-dat,[0-1]\d[0-3]\d,4,0,1,FechaFecNegocios
+18,mrcht-typ-cde,[ \d]*,4,0,1
+19,acq-inst-cntry-cde,[ \d]*,3,0,1
+20,pan-ext-cntry-cde,[ \d]*,3,0,1
+21,frwd-inst-cntry-cde,[ \d]*,3,0,1
+22,entry-mde,[ \d]*,3,0,1
+23,mbr-num,[ \d]*,3,0,1
+24,netw-intl-id,[ \d]*,3,0,1
+25,pt-tran-spcl-cde,[ \d]*,2,0,1
+26,pos-pin-capture-cde,[ \d]*,2,0,1
+27,auth-id-resp-len,[ \d]*,1,0,1
+28,tran-fee,[ \d]*,1,0,1
+29,setl-fee,[ \d]*,1,0,1
+30,tran-proc-fee,[ \d]*,1,0,1
+31,setl-proc-fee,[ \d]*,1,0,1
+32,acq-inst-id,[ \d]*,11,1,1
+33,frwd-inst-id,[ \d]*,11,1,1
+34,pan-extnd,,28,1,0
+35,track 2 ,,37,1,0,Plastico
+36,track 3 ,,104,1,0
+37,retrvl-ref-num,,12,0,0,Comprobante
+38,auth-id-resp,,6,0,0
+39,resp-cde,,2,0,0,Status
+40,service-cde,,3,0,0
+41,term-id,,16,0,0,TerminalATM
+42,crd-accpt-id-cde,,15,0,0
+43,crd-accpt-name-loc,,40,0,0,DatosOrigenTrx
+44,resp-data,,25,1,0
+45,track 1 ,,76,1,0
+46,add-data-iso,,100,1,0
+47,add-data-natl,,100,1,0
+48,add-data-prvt ,,100,1,0
+49,crncy-cde,[ \d]*,3,0,1,Moneda
+50,setl-crncy,[ \d]*,3,0,1
+51,bill-crncy,[ \d]*,3,0,1
+52,pin,,16,0,0
+53,sec-cntrl-info,,16,0,0
+54,add-amts,,120,1,0
+55,pri-rsrvd1-iso,,360,1,0
+56,pri-rsrvd2-iso,,100,1,0
+57,pri-rsrvd1-natl,,100,1,0
+58,pri-rsrvd2-natl,,100,1,0
+59,pri-rsrvd3-natl,,100,1,0
+60,pri-rsrvd1-prvt,,100,1,0,RedyPropDelATM
+61,pri-rsrvd2-prvt,,100,1,0,RedyPropDelPlastico
+62,pri-rsrvd3-prvt,,100,1,0
+63,pri-rsrvd4-prvt,,597,1,0
+64,pri-mac-cde,,16,0,0
+65,reserved for ISO use,,8,0,0
+66,setl-cde,[ \d]*,1,0,1
+67,extd-pay-cde,[ \d]*,2,0,1
+68,rcv-inst-cntry-cde,[ \d]*,3,0,1
+69,setl-inst-cntry-cde,[ \d]*,3,0,1
+70,netw-mgmt-cde,[ \d]*,3,0,1
+71,msg-num,[ \d]*,3,0,1
+72,lst-msg-num,[ \d]*,3,0,1
+73,action-dat,\d\d[0-1]\d[0-3]\d,6,0,1
+74,num-cr,[ \d]*,10,0,1
+75,num-cr-rvsl,[ \d]*,10,0,1
+76,num-db,[ \d]*,10,0,1
+77,num-db-rvsl,[ \d]*,10,0,1
+78,num-xfer,[ \d]*,10,0,1
+79,num-xfer-rvsl,[ \d]*,10,0,1
+80,num-inq,[ \d]*,10,0,1
+81,num-auth,[ \d]*,10,0,1
+82,amt-cr-proc-fees,[ \d]*,12,0,1
+83,amt-cr-tran-fees,[ \d]*,12,0,1
+84,amt-db-proc-fees,[ \d]*,12,0,1
+85,amt-db-tran-fees,[ \d]*,12,0,1
+86,amt-cr,[ \d]*,16,0,1
+87,amt-cr-rvsl,[ \d]*,16,0,1
+88,amt-db,[ \d]*,16,0,1
+89,amt-db-rvsl,[ \d]*,16,0,1
+90,orig-info,,42,0,0
+91,file-updt-cde,,1,0,0
+92,file-sec-cde,,2,0,0
+93,resp-ind,,5,0,0
+94,srv-ind,,7,0,0
+95,replacement,,42,0,0
+96,msg-sec-cde,,16,0,0
+97,setl-amt-net,,17,0,0
+98,payee,,25,0,0
+99,setl-inst,[ \d]*,11,1,1
+100,rcv-inst,[ \d]*,11,1,1
+101,fname,,17,1,0
+102,acct1,,28,1,0,CuentaDesde
+103,acct2,,28,1,0,CuentaHacia
+104,tran-descr,,100,1,0
+105,secndry-rsrvd1-iso,,100,1,0
+106,secndry-rsrvd2-iso,,100,1,0
+107,secndry-rsrvd3-iso,,100,1,0
+108,secndry-rsrvd4-iso,,100,1,0
+109,secndry-rsrvd5-iso,,100,1,0
+110,secndry-rsrvd6-iso,,100,1,0
+111,secndry-rsrvd7-iso,,100,1,0
+112,secndry-rsrvd1-natl,,200,1,0
+113,secndry-rsrvd2-natl,,100,1,0
+114,secndry-rsrvd3-natl,,100,1,0
+115,secndry-rsrvd4-natl,,100,1,0
+116,secndry-rsrvd5-natl,,100,1,0
+117,secndry-rsrvd6-natl,,100,1,0
+118,secndry-rsrvd7-natl,,100,1,0
+119,secndry-rsrvd8-natl,,100,1,0
+120,secndry-rsrvd1-prvt,,150,1,0
+121,secndry-rsrvd2-prvt,,150,1,0
+122,secndry-rsrvd3-prvt,,150,1,0
+123,secndry-rsrvd4-prvt,,455,1,0
+124,secndry-rsrvd5-prvt,,684,1,0
+125,secndry-rsrvd6-prvt,,680,1,0
+126,secndry-rsrvd7-prvt,,680,1,0
+127,secndry-rsrvd8-prvt,,200,1,0
+128,secndry-mac-cde,,16,0,0
